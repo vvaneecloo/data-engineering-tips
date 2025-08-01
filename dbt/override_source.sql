@@ -7,12 +7,12 @@
 */
 
 {% macro source(model_name) %}
-    {% set node = builtins.source(model_name) %}
+    {% set relation = builtins.source(model_name) %}
 
     {% if target.name  == 'dev' %}
-        -- override source macro for {{ node }} as pipeline is launched in dev
-        select * from {{ node }} limit 1000
+        -- override source macro for {{ relation }} as pipeline is launched in dev
+        select * from {{ relation }} limit 1000
     {% else %}
-        {{ node }}
+        {{ relation }}
     {% endif %}
 {% endmacro %}
