@@ -7,12 +7,12 @@
 */
 
 {% macro source(model_name) %}
-    {% set node = builtins.ref(model_name) %}
+    {% set relation = builtins.ref(model_name) %}
 
     {% if target.name  == 'dev' %}
         -- override ref macro for {{ node }} as pipeline is launched in dev
-        select * from {{ node }} limit 1000
+        select * from {{ relation }} limit 1000
     {% else %}
-        {{ node }}
+        {{ relation }}
     {% endif %}
 {% endmacro %}
