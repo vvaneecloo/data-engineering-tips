@@ -6,7 +6,7 @@
     */
     {% set node = builtins.source(model_name) %}
 
-    {% if profile.name  == 'dev' %}
+    {% if target.name  == 'dev' %} /* can also be profile.name depending on your use case */
         -- override source macro for {{ node }} as pipeline is launched in dev
         select * from {{ node }} limit 1000
     {% else %}
