@@ -1,4 +1,9 @@
 /*
+        This macro aims to override the source dbt macro to automatically add a limit to all
+        relations.
+
+        Example: `prod.some_table` becomes `select * from prod.some_table limit 1000`
+        
         To use this in your dbt project you'd have to modify:
             - target.name / profile.name depending on your use case,
             - the object you're comparing to (here 'dev')
