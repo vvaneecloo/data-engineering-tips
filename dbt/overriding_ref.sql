@@ -4,7 +4,7 @@
         Here you need to change this part of the code to make it work
         with your profile.yml file.
     */
-    {% set node = builtins.ref(model_name) %}
+    {% set node = builtins.source(model_name) %}
 
     {% if profile.name  == 'dev' %}
         -- override source macro for {{ node }} as pipeline is launched in dev
