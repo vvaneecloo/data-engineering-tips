@@ -1,3 +1,13 @@
+/*
+    This macro aims to update the comment dict in dbt to pass more informations such as 
+    Airflow dag id / run id.
+
+    To use this in your dbt project you'd have to:
+        - pass the variables `AIRFLOW_DAG_ID` & `AIRFLOW_RUN_ID` as environment variables
+        - update the names of your environments ('preprod' / 'prod')
+        - the rest is handled automatically by dbt
+*/
+
 {% macro enrich_comment(node) %}
     {%- set comment_dict = {} -%}
     {%- do comment_dict.update(
