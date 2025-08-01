@@ -19,3 +19,4 @@ You'll find tips & tricks on:
 - dbt
   - [Override the ref macro](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/override_ref.sql)
   - [Override the source macro](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/override_source.sql)
+  - [Enrich your dbt comments](https://github.com/vvaneecloo/data-engineering-tips)
