@@ -3,9 +3,9 @@
     Airflow dag id / run id.
 
     To use this in your dbt project you'd have to:
-        - pass the variables `AIRFLOW_DAG_ID` & `AIRFLOW_RUN_ID` as environment variables
-        - update the names of your environments ('preprod' / 'prod')
-        - the rest is handled automatically by dbt
+        1) Pass the variables `AIRFLOW_DAG_ID` & `AIRFLOW_RUN_ID` as environment variables,
+        2) Update the names of your environments ('preprod' / 'prod'),
+        3) The rest is handled automatically by dbt.
 */
 
 {% macro enrich_comment(node) %}
