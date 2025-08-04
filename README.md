@@ -20,3 +20,4 @@ You'll find tips & tricks on:
   - [Override the ref macro](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/override_ref.sql)
   - [Override the source macro](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/override_source.sql)
   - [Enrich your dbt comments](https://github.com/vvaneecloo/data-engineering-tips)
+  - [Add row count to monitoring table](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/insert_row_count.sql)
