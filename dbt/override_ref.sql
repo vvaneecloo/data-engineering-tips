@@ -6,10 +6,10 @@
     instead of `select * from prod.some_table`
 
     To use this in your dbt project you'd have to modify:
-        - target.name / profile.name depending on your use case,
-        - the object you're comparing to (here 'dev')
-        - the limit you want to add (here '1000'),
-        - you can also change the limit logic (limit / tablesample) based on your data warehouse
+        1) target.name / profile.name depending on your use case,
+        2) The object you're comparing to (here 'dev')
+        3) The limit you want to add (here '1000'),
+        4) You can also change the limit logic (limit / tablesample) based on your data warehouse.
 */
 
 {% macro ref(model_name) %}
