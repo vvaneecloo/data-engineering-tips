@@ -2,7 +2,7 @@
     This macro aims to override the ref dbt macro to automatically add a limit to all
     relations, e.g:
 
-    `{{ source('prod', 'some_table') }}` becomes `select * from prod.some_table limit 1000`
+    `{{ ref('prod', 'some_table') }}` becomes `select * from prod.some_table limit 1000`
     instead of `select * from prod.some_table`
 
     To use this in your dbt project you'd have to modify:
