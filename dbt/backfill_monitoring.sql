@@ -1,4 +1,4 @@
-{% macro backfill_monitoring() %}
+{% macro log_incremental() %}
   {% if is_incremental() %}
         , array_append(
             _metadata,
