@@ -1,24 +1,40 @@
 {% macro backfill_monitoring() %}
   {% if is_incremental() %}
-      , array_append(array(
+        , array_append(
+            _updated_at, 
             struct(
-              current_timestamp() as updated_at,
-              '{{ invocation_id }}' as run_id,
-              '{{ var("run_type", None) }}' as run_type,
-              '{{ var("data_interval_start", "NA") }}' as backfill_start,
-              '{{ var("data_interval_end", "NA") }}' as backfill_end
+              current_timestamp() as timestamp
+              {% if is_incremental() %}
+                , concat(
+                  '{{ env_var("DATA_INTERVAL_START", "None in env") }}', 
+                  ' - ', 
+                  '{{ env_var("DATA_INTERVAL_END", "None in env") }}'
+                ) as data_interval
+              {% else %}
+                '{{ env_var("MONDAY_WEEKS_TO_BACKFILL", "None in env") }}' as data_interval
+              {% endif %}
+              , '{{ env_var("FULL_REFRESH", "None in env") }}' as is_full_refresh
+              , '{{ env_var("DATABRICKS_RUN_ID", "None in env") }}' as databricks_run_id
+              , '{{ env_var("DATABRICKS_JOB_ID", "None in env") }}' as databricks_job_id
             )
-          )
-      )
-  {% else %}
-    , array(
+        ) as _metadata
+    {% else %}
+        , array(
             struct(
-              current_timestamp() as updated_at,
-              '{{ invocation_id }}' as run_id,
-              '{{ var("run_type", None) }}' as run_type,
-              '{{ var("data_interval_start", "NA") }}' as backfill_start,
-              '{{ var("data_interval_end", "NA") }}' as backfill_end
+              current_timestamp() as timestamp
+              {% if is_incremental() %}
+                , concat(
+                  '{{ env_var("DATA_INTERVAL_START", "None in env") }}', 
+                  ' - ', 
+                  '{{ env_var("DATA_INTERVAL_END", "None in env") }}'
+                ) as data_interval
+              {% else %}
+                '{{ env_var("MONDAY_WEEKS_TO_BACKFILL", "None in env") }}' as data_interval
+              {% endif %}
+              , '{{ env_var("FULL_REFRESH", "None in env") }}' as is_full_refresh
+              , '{{ env_var("DATABRICKS_RUN_ID", "None in env") }}' as databricks_run_id
+              , '{{ env_var("DATABRICKS_JOB_ID", "None in env") }}' as databricks_job_id
             )
-          )
-      )
-{% endmacro %}
+        ) as _metadata
+    {% endif %}
+  {% endmacro %}
