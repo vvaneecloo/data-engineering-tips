@@ -21,3 +21,6 @@ You'll find tips & tricks on:
   - [Override the source macro](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/override_source.sql)
   - [Enrich your dbt comments](https://github.com/vvaneecloo/data-engineering-tips)
   - [Add row count to monitoring table](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/insert_row_count.sql)
+  - [Test row count lower than accepted value](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/row_count_lower_than_accepted_value.sql)
+  - [Safe Operations (handling Nulls in additions, division by zero etc.)](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/safe_operations.sql)
+  - [Backfill monitoring at a row level](https://github.com/vvaneecloo/data-engineering-tips/blob/main/dbt/backfill_monitoring.sql)
