@@ -1,6 +1,6 @@
 # data-engineering-tips
 
-A collection of useful tips, tricks, and best practices for data engineers.
+
 
 ## What's Inside
 
