@@ -28,6 +28,10 @@ with
             model = {{ model }}
         qualify 
             1 - lag(row_count, 1) over (order by execution_time) / row_count >= '{{ accepted_value }}'
+
+            -- here you could use the safe_divide operation (located in `safe_operations.sql`), e.g. 
+            -- 1 - {{ safe_divide('lag(row_count, 1) over (order by execution_time)', 'row_count') }} >= '{{ accepted_value }}'
+    
         order by
             execution_time desc
         limit 1
